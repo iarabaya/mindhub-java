@@ -21,6 +21,7 @@ public class Account {
     private Double balance;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
     private Client client;
 
     public Account() { }
@@ -31,6 +32,7 @@ public class Account {
         this.balance = balance;
     }
 
+
     @JsonIgnore
     public Client getClient() {
         return client;
@@ -40,6 +42,12 @@ public class Account {
         this.client = client;
     }
 
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getNumber() {
         return number;
     }

@@ -29,12 +29,15 @@ public class HomebankingApplication {
 
 			Account account1 = new Account("VIN001", LocalDate.now(), 5000.00);
 			Account account2 = new Account("VIN002", LocalDate.now().plusDays(1), 7500.00);
+			Account account3 = new Account("VIN003", LocalDate.now().minusYears(3), 70500.00);
 
 			client1.addAccount(account1);
 			client1.addAccount(account2);
+			client2.addAccount(account3);
 
 			accountRepository.save(account1);
 			accountRepository.save(account2);
+			accountRepository.save(account3);
 
 		};
 	}
