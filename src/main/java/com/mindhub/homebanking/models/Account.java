@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Account {
@@ -24,6 +26,9 @@ public class Account {
     @JoinColumn(name = "client_id")
     private Client client;
 
+    @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
+    private List<Transaction> transactions = new ArrayList<>();
+
     public Account() { }
 
     public Account(String number, LocalDate creationDate, Double balance) {
@@ -31,7 +36,6 @@ public class Account {
         this.creationDate = creationDate;
         this.balance = balance;
     }
-
 
     @JsonIgnore
     public Client getClient() {
@@ -70,6 +74,15 @@ public class Account {
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void addTransaction(Transaction transaction){
+        transaction.setAccount(this);
+        this.transactions.add(transaction);
     }
 
 }
