@@ -101,9 +101,9 @@ public class HomebankingApplication {
 			transactionRepository.save(tran6);
 
 
-			Card card1 = new Card(client1, CardType.DEBIT, CardColor.GOLD, 123123, "abc", LocalDate.now(), LocalDate.now().plusYears(5));
-			Card card2 = new Card(client1, CardType.CREDIT, CardColor.TITANIUM, 234234, "def", LocalDate.now(), LocalDate.now().plusYears(5));
-			Card card3 = new Card(client2, CardType.CREDIT, CardColor.SILVER, 123456, "ghi", LocalDate.now(), LocalDate.now().plusYears(5));
+			Card card1 = new Card(client1, CardType.DEBIT, CardColor.GOLD, "3325-6745-7876-4445", 990, LocalDate.now(), LocalDate.now().plusYears(5));
+			Card card2 = new Card(client1, CardType.CREDIT, CardColor.TITANIUM, "2234-6745-5534-7888", 750, LocalDate.now(), LocalDate.now().plusYears(5));
+			Card card3 = new Card(client2, CardType.CREDIT, CardColor.SILVER, "1236-8892-1256-7296", 665, LocalDate.now(), LocalDate.now().plusYears(5));
 
 			client1.addCard(card1);
 			client1.addCard(card2);
