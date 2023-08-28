@@ -16,6 +16,7 @@ Vue.createApp({
                 .then((response) => {
                     //get client ifo
                     this.clientInfo = response.data;
+                    console.log(clientInfo)
                     this.creditCards = this.clientInfo.cards.filter(card => card.type == "CREDIT");
                     this.debitCards = this.clientInfo.cards.filter(card => card.type == "DEBIT");
                 })
